@@ -27,7 +27,6 @@ public class PvZGame extends Canvas implements Runnable {
     public static final String TITLE = "PvZ GAME!!!!!";
     public static final int WIDTH = 1550;
     public static final int HEIGHT = 1050;
-    
     private final int sunFrequency=15;
     
     private boolean running;
