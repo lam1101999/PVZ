@@ -20,6 +20,7 @@ public class NormalZombie extends Zombie {
     
     private long time1 = System.currentTimeMillis();
     private long time2 = System.currentTimeMillis();
+    private long time3 = System.currentTimeMillis();
 
     public NormalZombie() {
         health = 100;
@@ -29,6 +30,7 @@ public class NormalZombie extends Zombie {
         width = 120;
         height =150;
         attackspeed = attackSpeedOfNormalZombie;
+        freezeDuration = 0;
     }
 
     @Override
@@ -40,7 +42,10 @@ public class NormalZombie extends Zombie {
     	}
        
         createNormalZombie();
+        checkFreeze(isAttackByFrostBullet);
         checkCollision();
+        if( this.freezeDuration > 0)
+			speed = (int)speedOfNormalZombie/2;
         remove();
     }
 
@@ -70,6 +75,31 @@ public class NormalZombie extends Zombie {
     		speed = speedOfNormalZombie;
 
     	
+    }
+    
+    public void checkFreeze(boolean dinhsida) {
+    	
+    	
+    	if(dinhsida) {
+			this.freezeDuration = this.freezeDuration + 2;
+			System.out.printf("\ndinh sida %d      %d\n", this.freezeDuration,speed);
+			this.isAttackByFrostBullet = false;
+		}
+    	
+    	
+    	if( this.freezeDuration > 0)
+			speed = (int)speedOfNormalZombie/2;
+		else {
+			speed = speedOfNormalZombie;
+		}
+    	
+    	
+    	if (System.currentTimeMillis() - time3 >= 1000 ) {
+    		time3 = System.currentTimeMillis();
+    		if (this.freezeDuration > 0)
+    		this.freezeDuration = this.freezeDuration - 1;
+    		
+    	}
     }
     
     public void attack(Plant sup) {

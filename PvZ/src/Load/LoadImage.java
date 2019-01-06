@@ -37,6 +37,7 @@ public class LoadImage {
     public static Image Sun;
     public static Image normalBullet;
     public static Image frostBullet;
+    public static Image lawnMower;
     
     public static Image peaShooter1;
     public static Image peaShooter2;
@@ -126,6 +127,7 @@ public class LoadImage {
             frostBullet = sprite.getSubimage(990, 199, 32, 32);
             normalBullet = sprite.getSubimage(605, 93, 34, 33);
             Sun = ImageIO.read(new File("sources/Sun.png"));
+            lawnMower = sprite.getSubimage(293, 198, 60, 75);
 //            
             originPeaShooter = sprite.getSubimage(612, 617, 64, 89);
             originFrostPeaShooter = sprite.getSubimage(836, 618, 64, 89);

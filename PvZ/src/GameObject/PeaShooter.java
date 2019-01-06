@@ -16,7 +16,7 @@ import Load.LoadImage;
 public class PeaShooter extends Plant {
 	public final static int healthOfPeaShooter = 100;
 	public  static int priceOfPeaShooter = 100;
-	public final static int damageOfPeaShooter = 100;
+	public final static int damageOfPeaShooter = 30;
 	public final static double shootSpeedOfPeaShooter = 0.5;//number of bullet per second
 	
 	private double shootSpeed;

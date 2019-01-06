@@ -19,7 +19,7 @@ import java.util.ArrayList;
  */
 public class Handler {
 
-    
+    public static ArrayList<LawnMower> ListLawnMower = new ArrayList<LawnMower>();
     public static ArrayList<Plant> ListPlant = new ArrayList<Plant>();
     public static ArrayList<Zombie> ListZombie = new ArrayList<Zombie>();
     public static ArrayList<Bullet> ListBullet = new ArrayList<Bullet>();
@@ -46,6 +46,11 @@ public class Handler {
             
             tempObject.tick();
         }
+        for (int i = 0; i < ListLawnMower.size(); i++) {
+            GameObject tempObject = ListLawnMower.get(i);
+            
+            tempObject.tick();
+        }
     }
     
     public static void render(Graphics g){
@@ -66,6 +71,11 @@ public class Handler {
          }
          for (int i = 0; i < ListSun.size(); i++) {
              GameObject tempObject = ListSun.get(i);
+             
+             tempObject.render(g);
+         }
+         for (int i = 0; i < ListLawnMower.size(); i++) {
+             GameObject tempObject = ListLawnMower.get(i);
              
              tempObject.render(g);
          }

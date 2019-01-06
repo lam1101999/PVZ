@@ -29,7 +29,18 @@ public class ClickSun implements MouseListener{
 
 	@Override
 	public void mousePressed(MouseEvent e) {
+		int x = e.getX();
+		int y = e.getY();
+		Iterator<Sun> itrgo = Handler.ListSun.iterator();	
+		while(itrgo.hasNext()) {
+			GameObject gameobject = itrgo.next();
+			if((x>=gameobject.getX()) && (x<=(gameobject.getX()+gameobject.getWidth())) && (y>=gameobject.getY()) && (y<=(gameobject.getY()+gameobject.getHeight()))) {
+				Score.score += 25;
+				itrgo.remove();
+				
+			}
 		
+		}
 	}
 
 	@Override

@@ -32,8 +32,11 @@ public class PvZGame extends Canvas implements Runnable {
     private boolean running;
     
     private NormalZombie n1;
-    private FrostPeaShooter p1;
-    
+    private LawnMower lm1;
+    private LawnMower lm2;
+    private LawnMower lm3;
+    private LawnMower lm4;
+    private LawnMower lm5;
     LoadImage loadImage;
     LoadSpace loadspace;
     
@@ -54,6 +57,8 @@ public class PvZGame extends Canvas implements Runnable {
         new Window(WIDTH, HEIGHT, TITLE, this);
         
         n1 = new NormalZombie();
+        createLawnMower();
+       
       
         
         addMouseListener(new PlantTree());
@@ -154,6 +159,14 @@ public class PvZGame extends Canvas implements Runnable {
             new Sun();
             timeSun=System.currentTimeMillis();
         }
+    }
+    public void createLawnMower() {
+    	 lm1 = new LawnMower(0,170);
+    	 lm2 = new LawnMower(0,330);
+    	 lm3 = new LawnMower(0,490);
+    	 lm4 = new LawnMower(0,650);
+    	 lm5 = new LawnMower(0,810);
+    	 
     }
 
     
