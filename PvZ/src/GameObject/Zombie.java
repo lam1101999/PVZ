@@ -19,6 +19,24 @@ public abstract class Zombie extends GameObject {
     protected int damage;
     protected int frequency;
     protected int attackspeed;
+    public boolean isAttackByFrostBullet() {
+		return isAttackByFrostBullet;
+	}
+
+	public void setAttackByFrostBullet(boolean isAttackByFrostBullet) {
+		this.isAttackByFrostBullet = isAttackByFrostBullet;
+	}
+
+	public int getFreezeDuration() {
+		return freezeDuration;
+	}
+
+	public void setFreezeDuration(int freezeDuration) {
+		this.freezeDuration = freezeDuration;
+	}
+
+	protected boolean isAttackByFrostBullet = false;
+    protected int freezeDuration = 0;
 
     public Zombie() {
     	Handler.ListZombie.add(this);

@@ -6,6 +6,9 @@
 package GameObject;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
+
+import MainFrame.PvZGame;
 
 /**
  *
@@ -34,5 +37,9 @@ public abstract class Plant extends GameObject {
             Handler.ListPlant.remove(this);
         }
     }
+    public Rectangle getBound2(){
+    	return new Rectangle(x,y,width+PvZGame.WIDTH,height);
+    }
+
 
 }

@@ -45,6 +45,7 @@ public class FrostBullet extends Bullet {
     			int	hp = Handler.ListZombie.get(i).getHealth() - this.damage;
     			Handler.ListBullet.remove(this);
     			Handler.ListZombie.get(i).setHealth(hp);
+    			Handler.ListZombie.get(i).setAttackByFrostBullet(true);
     			
     		}
     	}

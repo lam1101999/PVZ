@@ -7,7 +7,7 @@ import Load.LoadImage;
 public class SunFlower extends Plant {
 
 	public final static int healthOfSunFlower = 100;
-	public static int priceOfSunFlower = 100;
+	public static int priceOfSunFlower = 50;
 	public final static double produceSpeedOfSunFlower = 0.1;
 	
 	private double produceSpeed;

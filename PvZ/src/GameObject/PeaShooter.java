@@ -46,13 +46,22 @@ public class PeaShooter extends Plant {
     		LoadImage.fullPeaShooter.update();
     		time1 = System.currentTimeMillis();
     	}
-        shoot();
+    	checkCollision();
         remove();
     }
 
     @Override
     public void render(Graphics g) {
     	  g.drawImage(LoadImage.fullPeaShooter.getCurrentImage(), x, y, width, height, null);
+    }
+
+    public void checkCollision() {
+    	for(int i = 0; i< Handler.ListZombie.size(); i++) {
+    		if(this.getBound2().intersects( Handler.ListZombie.get(i).getBound())) {
+    			shoot();
+    			
+    		}
+    	}
     }
 
     private void shoot() {

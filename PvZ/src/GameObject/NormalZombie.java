@@ -7,6 +7,7 @@ package GameObject;
 
 import Load.LoadImage;
 import java.awt.Graphics;
+import java.util.Iterator;
 
 /**
  *
@@ -14,10 +15,11 @@ import java.awt.Graphics;
  */
 public class NormalZombie extends Zombie {
 	public final static int attackSpeedOfNormalZombie = 2000;
-	public final static int speedOfNormalZombie = 5;
+	public final static int speedOfNormalZombie = 15;
     private static long time = System.currentTimeMillis();
     
     private long time1 = System.currentTimeMillis();
+    private long time2 = System.currentTimeMillis();
 
     public NormalZombie() {
         health = 100;
@@ -31,8 +33,12 @@ public class NormalZombie extends Zombie {
 
     @Override
     public void tick() {
-        x -= speed;
-        LoadImage.fullNormalZombie.update();
+    	if (System.currentTimeMillis() - time2 > 200) {
+    		 x -= speed;
+    	     LoadImage.fullNormalZombie.update();
+    	     time2 = System.currentTimeMillis();
+    	}
+       
         createNormalZombie();
         checkCollision();
         remove();
@@ -44,19 +50,25 @@ public class NormalZombie extends Zombie {
     }
 
     public void createNormalZombie() {
-        if (System.currentTimeMillis() - time > frequency * 100) {
+        if (System.currentTimeMillis() - time > frequency * 500) {
             new NormalZombie();
             time = System.currentTimeMillis();
         }
     }
     public void checkCollision() {
-    	for(int i = 0; i< Handler.ListPlant.size(); i++)
-    			if(this.getBound().intersects( Handler.ListPlant.get(i).getBound())) {
-    				speed = 0;
-    				attack(Handler.ListPlant.get(i));
-    			} else speed = speedOfNormalZombie;
+    	Iterator<Plant> itrlp = Handler.ListPlant.iterator();
+    	while(itrlp.hasNext()) {
+    		Plant supPlant = itrlp.next();
+    		if (this.getBound().intersects(supPlant.getBound())) {
+    			speed = 0;
+    			attack(supPlant);
+    			break;
+    		}else speed = speedOfNormalZombie;
+    		
+    	}
     	if (Handler.ListPlant.size() == 0)
     		speed = speedOfNormalZombie;
+
     	
     }
     

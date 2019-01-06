@@ -11,7 +11,7 @@ import Load.LoadImage;
  */
 public class FrostPeaShooter extends Plant {
 	public final static int healthOfFrostPeaShooter = 100;
-	public static int priceOfFrostPeaShooter = 100;
+	public static int priceOfFrostPeaShooter = 175;
 	public final static int damageOfFrostPeaShooter = 100;
 	public final static double shootSpeedOfFrostPeaShooter = 0.5;//number of bullet per second
 	
@@ -42,7 +42,7 @@ public class FrostPeaShooter extends Plant {
     		LoadImage.fullFrostPeaShooter.update();
     		time1 = System.currentTimeMillis();
     	}
-        shoot();
+       checkCollision();
         remove();
     }
 
@@ -51,6 +51,16 @@ public class FrostPeaShooter extends Plant {
     	  g.drawImage(LoadImage.fullFrostPeaShooter.getCurrentImage(), x, y, width, height, null);
     }
 
+    public void checkCollision() {
+    	for(int i = 0; i< Handler.ListZombie.size(); i++) {
+    		if(this.getBound2().intersects( Handler.ListZombie.get(i).getBound())) {
+    			shoot();
+    			
+    		}
+    	}
+    }
+
+    
     private void shoot() {
         if (System.currentTimeMillis() - time2 > 1000/shootSpeed) {
             new FrostBullet(x, y, damage);

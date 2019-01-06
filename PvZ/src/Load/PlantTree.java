@@ -51,19 +51,19 @@ public class PlantTree implements MouseListener {
 		Space sup;
 		sup = checkPosition(x,y);
 		if ((sup != null) && (n!=0)) {
-			if ((!sup.isStatus()) && (n==1) && (Score.score >= 100)) {
+			if ((!sup.isStatus()) && (n==1) && (Score.score >= PeaShooter.priceOfPeaShooter)) {
 				 new PeaShooter(sup.getDrawX(),sup.getDrawY());
 				 Score.score -= PeaShooter.priceOfPeaShooter;
 				 sup.setStatus(true);
 				 n = 0;
 			}
-			if ((!sup.isStatus()) && (n==2) && (Score.score >= 170)) {
+			if ((!sup.isStatus()) && (n==2) && (Score.score >= FrostPeaShooter.priceOfFrostPeaShooter)) {
 				 new FrostPeaShooter(sup.getDrawX(),sup.getDrawY());
 				 Score.score -= FrostPeaShooter.priceOfFrostPeaShooter;
 				 sup.setStatus(true);
 				 n = 0;
 			}
-			if ((!sup.isStatus()) && (n==3) && (Score.score >= 50)) {
+			if ((!sup.isStatus()) && (n==3) && (Score.score >= SunFlower.priceOfSunFlower)) {
 				 new SunFlower(sup.getDrawX(),sup.getDrawY());
 				 Score.score -= SunFlower.priceOfSunFlower;
 				 sup.setStatus(true);
