@@ -80,4 +80,11 @@ public class Handler {
              tempObject.render(g);
          }
     }
+    
+    public static void reset() {
+    	ListPlant.clear();
+    	ListZombie.clear();
+    	ListBullet.clear();
+    	ListSun.clear();
+    }
 }

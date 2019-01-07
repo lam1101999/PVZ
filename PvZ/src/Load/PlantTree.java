@@ -10,6 +10,7 @@ import GameObject.Handler;
 import GameObject.PeaShooter;
 import GameObject.Plant;
 import GameObject.SunFlower;
+import GameObject.WalNut;
 
 
 public class PlantTree implements MouseListener {
@@ -29,15 +30,18 @@ public class PlantTree implements MouseListener {
 	@Override
 	public void mousePressed(MouseEvent e) {
 		// PeaShooter
-		if ((e.getX() > 190) && (e.getX() < 254) && (e.getY() > 10) &&(e.getY() < 99) )  {
+		if ((e.getX() > 190) && (e.getX() < 270) && (e.getY() > 10) &&(e.getY() < 110) )  {
 			n = 1;
 			}
 		// FrostPeaShooter
-		if ((e.getX() > 260) && (e.getX() < 324) && (e.getY() > 10) &&(e.getY() < 99) )  {
+		if ((e.getX() > 280) && (e.getX() < 360) && (e.getY() > 10) &&(e.getY() < 110) )  {
 			n = 2;
 		}
-		if ((e.getX() > 330) && (e.getX() < 394) && (e.getY() > 10) &&(e.getY() < 99) )  {
+		if ((e.getX() > 370) && (e.getX() < 450) && (e.getY() > 10) &&(e.getY() < 110) )  {
 			n = 3;
+		}
+		if ((e.getX() > 460) && (e.getX() < 540) && (e.getY() > 10) &&(e.getY() < 110) )  {
+			n = 4;
 		}
 		if ((e.getX() > 797) && (e.getX() < 911) && (e.getY() > 0) &&(e.getY() < 96) )  {
 			n = 10;
@@ -66,6 +70,12 @@ public class PlantTree implements MouseListener {
 			if ((!sup.isStatus()) && (n==3) && (Score.score >= SunFlower.priceOfSunFlower)) {
 				 new SunFlower(sup.getDrawX(),sup.getDrawY());
 				 Score.score -= SunFlower.priceOfSunFlower;
+				 sup.setStatus(true);
+				 n = 0;
+			}	
+			if ((!sup.isStatus()) && (n==4) && (Score.score >= WalNut.priceOfWalNut)) {
+				 new WalNut(sup.getDrawX(),sup.getDrawY());
+				 Score.score -= WalNut.priceOfWalNut;
 				 sup.setStatus(true);
 				 n = 0;
 			}	

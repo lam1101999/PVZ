@@ -53,6 +53,13 @@ public class LoadImage {
     public static Image frostPeaShooter4;
     public static Image frostPeaShooter5;
     
+    public static Image walNut1;
+    public static Image walNut2;
+    public static Image walNut3;
+    public static Image walNut4;
+    
+
+    
     public static Image sunFlower1;
     public static Image sunFlower2;
     public static Image sunFlower3;
@@ -64,6 +71,7 @@ public class LoadImage {
     public static Image originPeaShooter;
     public static Image originFrostPeaShooter;
     public static Image originSunFlower;
+    public static Image  originWalNut;
 //--------------------------------------------------------------------------------------------------------------//
 //    
 //    //ANIMATION
@@ -71,8 +79,12 @@ public class LoadImage {
     public static Animation fullNormalZombie;
     public static Animation fullFrostPeaShooter;
     public static Animation fullSunFlower;
+    public static Animation fullWalNut1;
+    public static Animation fullWalNut2;
 
     public static Image screenBackGound;
+    public static Image MenuState;
+    public static Image EndGame;
     
     public LoadImage(){
         loadImage();
@@ -82,7 +94,10 @@ public class LoadImage {
     public void loadImage() {
         try {
             screenBackGound = ImageIO.read(new File("sources/BackGroundPvZ.png"));
-
+            MenuState = ImageIO.read(new File("sources/MenuState.png"));
+            EndGame = ImageIO.read(new File("sources/endgame.png"));
+            
+            
             sprite = ImageIO.read(new File("sources/all/all.png"));
             normalZombie1 = ImageIO.read(new File("sources/NormalZombie/1.png"));
             normalZombie2 = ImageIO.read(new File("sources/NormalZombie/2.png"));
@@ -122,6 +137,11 @@ public class LoadImage {
             sunFlower3 = sprite.getSubimage(165, 0, 83, 84);
             sunFlower4 = sprite.getSubimage(245, 0, 83, 84);
             sunFlower5 = sprite.getSubimage(325, 0, 83, 84);
+            
+            walNut1 = sprite.getSubimage(12, 285, 79, 91);
+            walNut2 = sprite.getSubimage(107, 285, 79, 91);
+            walNut3 = sprite.getSubimage(967, 299, 79, 91);
+            walNut4 = sprite.getSubimage(1059, 299, 79, 91);
            
             
             frostBullet = sprite.getSubimage(990, 199, 32, 32);
@@ -132,6 +152,7 @@ public class LoadImage {
             originPeaShooter = sprite.getSubimage(612, 617, 64, 89);
             originFrostPeaShooter = sprite.getSubimage(836, 618, 64, 89);
             originSunFlower = sprite.getSubimage(688,618, 64, 89);
+            originWalNut = sprite.getSubimage(1004, 622, 64, 89);
 //            
         } catch (IOException e) {
             e.printStackTrace();
@@ -180,5 +201,13 @@ public class LoadImage {
         fullSunFlower.addImage(sunFlower3);
         fullSunFlower.addImage(sunFlower4);        
         fullSunFlower.addImage(sunFlower5);
+        
+        fullWalNut1 = new Animation();
+        fullWalNut1.addImage(walNut1);
+        fullWalNut1.addImage(walNut2);
+        fullWalNut2 = new Animation();
+        fullWalNut2.addImage(walNut3);
+        fullWalNut2.addImage(walNut4);
+        
     }
 }
