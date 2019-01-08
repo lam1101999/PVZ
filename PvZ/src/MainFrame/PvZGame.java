@@ -34,11 +34,11 @@ public class PvZGame extends Canvas implements Runnable {
 
 	private FrostPeaShooter p1;
 	private LawnMower lm1;
-    private LawnMower lm2;
-    private LawnMower lm3;
-    private LawnMower lm4;
-    private LawnMower lm5;
-	
+	private LawnMower lm2;
+	private LawnMower lm3;
+	private LawnMower lm4;
+	private LawnMower lm5;
+
 	private Menu menu;
 
 	LoadImage loadImage;
@@ -46,24 +46,24 @@ public class PvZGame extends Canvas implements Runnable {
 
 	private long timeSun = System.currentTimeMillis();
 
-	public  enum STATE {
-		Menu, Game , End
+	public enum STATE {
+		Menu, Game, End
 	};
-	
+
 	public STATE gameState = STATE.Menu;
-	
+
 	public PvZGame() {
 		loadImage = new LoadImage();
 		loadImage.loadImage();
 		loadImage.loadAmination();
-		
+
 		loadspace.LoadSpaceTree();
 
 		new Window(WIDTH, HEIGHT, TITLE, this);
 		menu = new Menu(this);
-		
-		 createLawnMower();
-		
+
+		createLawnMower();
+
 		this.addMouseListener(menu);
 		this.addMouseListener(new PlantTree());
 		this.addMouseListener(new ClickSun());
@@ -92,7 +92,7 @@ public class PvZGame extends Canvas implements Runnable {
 			createNewZombie();
 			checkGameEnd();
 		}
-		if (gameState == STATE.Menu|| gameState == STATE.End) {
+		if (gameState == STATE.Menu || gameState == STATE.End) {
 			menu.tick();
 		}
 	}
@@ -111,34 +111,32 @@ public class PvZGame extends Canvas implements Runnable {
 		// Draw Score
 		g.drawString(Integer.toString(Score.score), 96, 100);
 		/////////////////////////////////////////////////
-		
-		
+
 		if (gameState == STATE.Game) {
 			///////////////////////////////////////////////////////// DRAW TREE CARD
-			g.drawImage(LoadImage.originPeaShooter,190,10,80,100,null);
-    		g.drawImage(LoadImage.originFrostPeaShooter, 280,10,80,100,null);
-    		g.drawImage(LoadImage.originSunFlower, 370,10,80,100,null);
-    		g.drawImage(LoadImage.originWalNut, 460, 10, 80,100,null);
+			g.drawImage(LoadImage.originPeaShooter, 190, 10, 80, 100, null);
+			g.drawImage(LoadImage.originFrostPeaShooter, 280, 10, 80, 100, null);
+			g.drawImage(LoadImage.originSunFlower, 370, 10, 80, 100, null);
+			g.drawImage(LoadImage.originWalNut, 460, 10, 80, 100, null);
 
 		}
-		if (gameState == STATE.Menu|| gameState == STATE.End) {
+		if (gameState == STATE.Menu || gameState == STATE.End) {
 			menu.render(g);
 		}
 
-		
 //        handler.render(g);
 		/////////////////////////////////////////////////
 		g.dispose();
 		bs.show();
 
 	}
-	
+
 	public void checkGameEnd() {
 		for (int i = 0; i < Handler.ListZombie.size(); i++) {
 			GameObject tempObject = Handler.ListZombie.get(i);
-			if (tempObject.getX() <= 0-20) {
+			if (tempObject.getX() <= 0 - 20) {
 				gameState = STATE.End;
-				
+
 				try {
 					Thread.sleep(3000);
 				} catch (InterruptedException e) {
@@ -149,6 +147,7 @@ public class PvZGame extends Canvas implements Runnable {
 			}
 		}
 	}
+
 	@Override
 	public void run() {
 		this.requestFocus();
@@ -198,20 +197,29 @@ public class PvZGame extends Canvas implements Runnable {
 	}
 
 	public void createNewZombie() {
+		int n = 0;
+
 		if (System.currentTimeMillis() - timeSun > normalZombieFrequency * 1000) {
-			new NormalZombie();
+			if (n <= 10) {
+				new NormalZombie();
+				n++;
+			} else {
+				new NormalZombie();
+				new NormalZombie();
+			}
+
 			timeSun = System.currentTimeMillis();
 		}
 	}
-	
+
 	public void createLawnMower() {
-   	 lm1 = new LawnMower(0,170);
-   	 lm2 = new LawnMower(0,330);
-   	 lm3 = new LawnMower(0,490);
-   	 lm4 = new LawnMower(0,650);
-   	 lm5 = new LawnMower(0,810);
-   	 
-   }
+		lm1 = new LawnMower(0, 170);
+		lm2 = new LawnMower(0, 330);
+		lm3 = new LawnMower(0, 490);
+		lm4 = new LawnMower(0, 650);
+		lm5 = new LawnMower(0, 810);
+
+	}
 
 	public static void main(String[] args) {
 		new PvZGame();

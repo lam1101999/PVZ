@@ -81,7 +81,7 @@ public abstract class Zombie extends GameObject {
 
     @Override
     public void remove() {
-        if ((x<=0) || (health <= 0))
+        if ( (health <= 0))
         Handler.ListZombie.remove(this);
     }
 }

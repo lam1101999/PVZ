@@ -41,7 +41,7 @@ public class NormalZombie extends Zombie {
     	     time2 = System.currentTimeMillis();
     	}
        
-        createNormalZombie();
+//        createNormalZombie();
         checkFreeze(isAttackByFrostBullet);
         checkCollision();
         if( this.freezeDuration > 0)
