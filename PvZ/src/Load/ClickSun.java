@@ -6,8 +6,8 @@ import java.util.Iterator;
 
 import GameObject.GameObject;
 import GameObject.Handler;
-import GameObject.Plant;
-import GameObject.Sun;
+import GameObject.Bullet.Sun;
+import GameObject.Flower.Plant;
 
 public class ClickSun implements MouseListener{
 

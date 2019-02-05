@@ -3,11 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GameObject;
+package GameObject.Bullet;
 
 import Load.LoadImage;
 import MainFrame.PvZGame;
 import java.awt.Graphics;
+
+import GameObject.Handler;
 
 /**
  *

@@ -1,6 +1,9 @@
-package GameObject;
+package GameObject.Bullet;
 
 import java.awt.Graphics;
+
+import GameObject.GameObject;
+import GameObject.Handler;
 
 public abstract class Bullet extends GameObject {
 

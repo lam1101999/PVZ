@@ -1,7 +1,8 @@
-package GameObject;
+package GameObject.Bullet;
 
 import java.awt.Graphics;
 
+import GameObject.Handler;
 import Load.LoadImage;
 import MainFrame.PvZGame;
 

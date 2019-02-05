@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GameObject;
+package GameObject.Zombie;
 
 import Load.LoadImage;
 import java.awt.Graphics;
 import java.util.Iterator;
+
+import GameObject.Handler;
+import GameObject.Flower.Plant;
 
 /**
  *

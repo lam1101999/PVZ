@@ -4,13 +4,13 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Iterator;
 
-import GameObject.FrostPeaShooter;
 import GameObject.GameObject;
 import GameObject.Handler;
-import GameObject.PeaShooter;
-import GameObject.Plant;
-import GameObject.SunFlower;
-import GameObject.WalNut;
+import GameObject.Flower.FrostPeaShooter;
+import GameObject.Flower.PeaShooter;
+import GameObject.Flower.Plant;
+import GameObject.Flower.SunFlower;
+import GameObject.Flower.WalNut;
 
 
 public class PlantTree implements MouseListener {
@@ -34,18 +34,19 @@ public class PlantTree implements MouseListener {
 			n = 1;
 			}
 		// FrostPeaShooter
-		if ((e.getX() > 280) && (e.getX() < 360) && (e.getY() > 10) &&(e.getY() < 110) )  {
+		else if ((e.getX() > 280) && (e.getX() < 360) && (e.getY() > 10) &&(e.getY() < 110) )  {
 			n = 2;
 		}
-		if ((e.getX() > 370) && (e.getX() < 450) && (e.getY() > 10) &&(e.getY() < 110) )  {
+		else if ((e.getX() > 370) && (e.getX() < 450) && (e.getY() > 10) &&(e.getY() < 110) )  {
 			n = 3;
 		}
-		if ((e.getX() > 460) && (e.getX() < 540) && (e.getY() > 10) &&(e.getY() < 110) )  {
+		else if ((e.getX() > 460) && (e.getX() < 540) && (e.getY() > 10) &&(e.getY() < 110) )  {
 			n = 4;
 		}
-		if ((e.getX() > 797) && (e.getX() < 911) && (e.getY() > 0) &&(e.getY() < 96) )  {
+		else if ((e.getX() > 797) && (e.getX() < 911) && (e.getY() > 0) &&(e.getY() < 96) )  {
 			n = 10;
 		}
+		else n= 0;
 		
 	}
 	@Override
@@ -79,7 +80,8 @@ public class PlantTree implements MouseListener {
 				 sup.setStatus(true);
 				 n = 0;
 			}	
-			if ((sup.isStatus()) && (n==10)) {
+			if	(n==10) {
+			if (sup.isStatus()) {
 				Iterator<Plant> itrgo = Handler.ListPlant.iterator();	
 				while(itrgo.hasNext()) {
 					GameObject gameobject = itrgo.next();
@@ -90,9 +92,10 @@ public class PlantTree implements MouseListener {
 					}
 				}
 				 
-			}
+				}
 		
-		}	
+			}else n = 0;	
+	}
 	}
 
 	@Override

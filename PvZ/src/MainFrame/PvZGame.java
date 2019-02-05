@@ -6,6 +6,9 @@
 package MainFrame;
 
 import GameObject.*;
+import GameObject.Bullet.Sun;
+import GameObject.Flower.FrostPeaShooter;
+import GameObject.Zombie.*;
 import Load.ClickSun;
 import Load.LoadImage;
 import Load.LoadSpace;
@@ -32,12 +35,7 @@ public class PvZGame extends Canvas implements Runnable {
 
 	private boolean running;
 
-	private FrostPeaShooter p1;
-	private LawnMower lm1;
-	private LawnMower lm2;
-	private LawnMower lm3;
-	private LawnMower lm4;
-	private LawnMower lm5;
+	
 
 	private Menu menu;
 
@@ -45,6 +43,7 @@ public class PvZGame extends Canvas implements Runnable {
 	LoadSpace loadspace;
 
 	private long timeSun = System.currentTimeMillis();
+	private long timeZombie = System.currentTimeMillis();
 
 	public enum STATE {
 		Menu, Game, End
@@ -62,7 +61,7 @@ public class PvZGame extends Canvas implements Runnable {
 		new Window(WIDTH, HEIGHT, TITLE, this);
 		menu = new Menu(this);
 
-		createLawnMower();
+		Handler.reset();
 
 		this.addMouseListener(menu);
 		this.addMouseListener(new PlantTree());
@@ -199,7 +198,7 @@ public class PvZGame extends Canvas implements Runnable {
 	public void createNewZombie() {
 		int n = 0;
 
-		if (System.currentTimeMillis() - timeSun > normalZombieFrequency * 1000) {
+		if (System.currentTimeMillis() - timeZombie > normalZombieFrequency * 1000) {
 			if (n <= 10) {
 				new NormalZombie();
 				n++;
@@ -208,18 +207,11 @@ public class PvZGame extends Canvas implements Runnable {
 				new NormalZombie();
 			}
 
-			timeSun = System.currentTimeMillis();
+			timeZombie = System.currentTimeMillis();
 		}
 	}
 
-	public void createLawnMower() {
-		lm1 = new LawnMower(0, 170);
-		lm2 = new LawnMower(0, 330);
-		lm3 = new LawnMower(0, 490);
-		lm4 = new LawnMower(0, 650);
-		lm5 = new LawnMower(0, 810);
-
-	}
+	
 
 	public static void main(String[] args) {
 		new PvZGame();

@@ -1,4 +1,4 @@
-package GameObject;
+package GameObject.Flower;
 
 import java.awt.Graphics;
 

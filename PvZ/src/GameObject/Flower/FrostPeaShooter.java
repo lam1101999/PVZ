@@ -1,8 +1,10 @@
 
-package GameObject;
+package GameObject.Flower;
 
 import java.awt.Graphics;
 
+import GameObject.Handler;
+import GameObject.Bullet.FrostBullet;
 import Load.LoadImage;
 
 /**

@@ -3,11 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package GameObject;
+package GameObject.Bullet;
 
 import Load.LoadImage;
 import java.awt.Graphics;
 import java.util.Random;
+
+import GameObject.GameObject;
+import GameObject.Handler;
 
 /**
  *

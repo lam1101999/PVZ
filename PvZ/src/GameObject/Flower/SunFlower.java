@@ -1,7 +1,8 @@
-package GameObject;
+package GameObject.Flower;
 
 import java.awt.Graphics;
 
+import GameObject.Bullet.Sun;
 import Load.LoadImage;
 
 public class SunFlower extends Plant {
